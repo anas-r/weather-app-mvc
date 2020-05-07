@@ -15,9 +15,8 @@ export class View {
         this.input.type = "text";
         this.input.placeholder = "Search a city..."
 
-        const searchButton = $_('input');
-        searchButton.value="Search"
-        searchButton.type="submit";
+        const searchButton = $_('button');
+        searchButton.innerHTML = '<i class="fas fa-search"></i>'
 
         label.append(this.input,searchButton);
         this.form.append(label);
@@ -83,6 +82,11 @@ export class View {
         this.airValues.humidity.textContent = `${weather.air.humidity} %`;
         this.airValues.pressure.textContent = `${weather.air.pressure} hPa`;
         this.airValues.speed.textContent = `${weather.air.speed} ${((weather.unit === "metric" ? "m/s" : "mph"))}`;
+    }
+
+    updateBackground(bg) {
+        console.log(bg);
+        $('#background').style.backgroundImage = `url('${bg})`;
     }
 
     bindCitySearch(handler) {

@@ -15,6 +15,7 @@ html {
 
 * {
   box-sizing: border-box;
+  transition: all 0.4s ease-in-out;
 }
 
 body {
@@ -22,15 +23,60 @@ body {
   display: flex;
 }
 
-#root {
-  width: $card-width;
-  margin: 5% auto auto auto;
+#background {
+  position: fixed;
+  height: 100vh*1.2;
+  width: 100vw;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(20px);
   border: solid black 1px;
-  padding: 5%;
+  z-index: -1;
 }
 
-.air-wrapper {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  justify-items: center;
+#root {
+  margin: 5% auto auto auto;
+  width: $card-width;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.3);
+  padding: 3.5%;
+  box-shadow: $shadow;
+
+  &:hover {
+  background: rgba(255,255,255,0.5)
+  }
+
+  .icon {
+    margin: 40px auto 0 auto;
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+  h5 {
+    margin-top: 0;
+  }
+
+  h1 {
+    margin-bottom: 40px;
+    font-size: 3rem;
+  }
+
+  .air-wrapper {
+    width: 100%;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+    grid-gap: 10px;
+
+    span {
+      font-size: small;
+      font-weight: bold;
+    }
+  }
 }
