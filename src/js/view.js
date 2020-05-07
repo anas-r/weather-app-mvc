@@ -10,6 +10,7 @@ export class View {
 
         const label = $_('label');
         label.for = "search-city";
+        label.className = "search-city"
 
         this.input = $_('input');
         this.input.type = "text";
@@ -55,7 +56,7 @@ export class View {
 
         this.celsiusSwitch = $_('input','unit celsius');
         const celsiusSwitchText = $_('span');
-        celsiusSwitchText.textContent = '°C';
+        celsiusSwitchText.textContent = 'C';
         this.celsiusSwitch.type = 'radio';
         this.celsiusSwitch.name = 'unit-switcher';
         this.celsiusSwitch.checked = true;
@@ -63,12 +64,12 @@ export class View {
 
         this.fahrenheitSwitch = $_('input','unit fahrenheit');
         const fahrenheitSwitchText = $_('span');
-        fahrenheitSwitchText.textContent = '°F';
+        fahrenheitSwitchText.textContent = 'F';
         this.fahrenheitSwitch.type = 'radio'
         this.fahrenheitSwitch.name = 'unit-switcher';
         this.oldFahrenheitSwitch = false;
 
-        unitSwitcher.append(celsiusSwitchText,this.celsiusSwitch,this.fahrenheitSwitch,fahrenheitSwitchText);
+        unitSwitcher.append(this.celsiusSwitch,celsiusSwitchText,this.fahrenheitSwitch,fahrenheitSwitchText);
 
         // Appending everything.
         this.card.append(this.form,this.icon,this.city,this.description,this.temperature,airWrapper,unitSwitcher);
@@ -93,7 +94,7 @@ export class View {
         this.form.addEventListener('submit', event => {
             event.preventDefault();
             const city = this.input.value;
-            handler(city);
+            (!(city === '')) && handler(city);
         })
     }
 

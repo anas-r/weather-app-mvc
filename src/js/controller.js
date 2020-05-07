@@ -30,7 +30,7 @@ export class Controller {
         data.then(data => this.model.updateWeather(data, this.model.unit))
 
         const image = this._fetchPixabayAPI(city)
-        image.then(data => data.hits[0].largeImageURL)
+        image.then(data => data.hits[data.hits.length*Math.random() >> 0].largeImageURL)
 /*
             .then(data =>{console.log(data); return data})
 */

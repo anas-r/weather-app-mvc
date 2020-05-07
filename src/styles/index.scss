@@ -1,7 +1,5 @@
-@font-face {
-  font-family: 'Roboto';
-  src: url(../fonts/Roboto-Regular.ttf)
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400&display=swap');
 
 @import 'variables';
 @import '~@fortawesome/fontawesome-free/css/all.css';
@@ -16,6 +14,7 @@ html {
 * {
   box-sizing: border-box;
   transition: all 0.4s ease-in-out;
+  cursor: default;
 }
 
 body {
@@ -25,12 +24,13 @@ body {
 
 #background {
   position: fixed;
-  height: 100vh*1.2;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
+  transform: scale(1.2);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: blur(20px);
+  filter: blur(15px);
   border: solid black 1px;
   z-index: -1;
 }
@@ -39,12 +39,13 @@ body {
   margin: 5% auto auto auto;
   width: $card-width;
   border-radius: 25px;
-  background: rgba(255,255,255,0.3);
-  padding: 3.5%;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 0.15*$card-width;
   box-shadow: $shadow;
 
   &:hover {
-  background: rgba(255,255,255,0.5)
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.02);
   }
 
   .icon {
@@ -53,12 +54,14 @@ body {
 
   h3 {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     padding: 0;
+    font-size: xx-large;
   }
 
   h5 {
     margin-top: 0;
+    font-size: medium;
   }
 
   h1 {
@@ -70,7 +73,7 @@ body {
     width: 100%;
     margin-bottom: 40px;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     grid-gap: 10px;
 
@@ -79,4 +82,57 @@ body {
       font-weight: bold;
     }
   }
+}
+
+
+.search-city {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 4fr 1fr;
+
+  input {
+    border-style: none;
+    width: 100%;
+    font-family: $font-family;
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 5px;
+    box-shadow: $shadow;
+    justify-self: start;
+  }
+
+  button {
+    border-style: none;
+    height: 35px;
+    width: 35px;
+    justify-self: end;
+    border-radius: 35px;
+    box-shadow: $shadow;
+    cursor: pointer;
+  }
+}
+
+.units {
+  background-color: rgba(0, 0, 0, 0.35);
+  border-radius: 50px;
+  padding: 12px 5px;
+
+  input[type="radio"] {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(2.5);
+  }
+
+  span {
+    border-radius: 25px;
+    width: 80px;
+    height: 25px;
+    padding: 8px 13px;
+  }
+}
+
+input[type="radio"]:checked + span {
+  background-color: rgba(0, 0, 0, 0.55);
+  color: white;
 }
