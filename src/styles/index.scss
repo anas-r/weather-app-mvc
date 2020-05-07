@@ -4,15 +4,33 @@
 }
 
 @import 'variables';
+@import '~@fortawesome/fontawesome-free/css/all.css';
 
 html {
   font-size: $root-font-size;
   font-family: $font-family;
-  max-width: $page-width;
   margin: 0 auto;
   text-align: center;
 }
 
-p {
-  font-size: $paragraph-font-size;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+}
+
+#root {
+  width: $card-width;
+  margin: 5% auto auto auto;
+  border: solid black 1px;
+  padding: 5%;
+}
+
+.air-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  justify-items: center;
 }

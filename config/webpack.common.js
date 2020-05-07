@@ -10,6 +10,7 @@ module.exports = {
    * The first place Webpack looks to start building the bundle.
    */
   entry: [paths.src + '/index.js'],
+  watch: true,
 
   /**
    * Output
@@ -54,7 +55,7 @@ module.exports = {
      * Generates an HTML file from a template.
      */
     new HtmlWebpackPlugin({
-      title: 'Webpack Boilerplate',
+      title: 'MVC Weather App',
       favicon: paths.static + '/favicon.png',
       template: paths.src + '/template.html', // template file
       filename: 'index.html', // output file
